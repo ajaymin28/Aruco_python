@@ -1,4 +1,4 @@
-This is Aruco Build in Python using python bindings of opencv.
+This is Aruco built in Python using python bindings of opencv.
 
 Requirements
 
@@ -46,6 +46,8 @@ Requirements
 2. python opengl (an introduction to opengl, and how it works. )
 3. blender (to modify and to create new objects as per your requirements.)
 4. unity 3d (optional)
+5. Aruco marker printed. (http://terpconnect.umd.edu/~jwelsh12/enes100/markergen.html)
+
 
 visit https://free3d.com/3d-models/obj-file
 
@@ -65,8 +67,17 @@ Anything you find let me know. :)
 Licence
 
 I do not own any of the obj files, please read the readme file model/zip/sinband directory.
-main.py is modified from https://rdmilligan.wordpress.com/2015/10/15/augmented-reality-using-opencv-opengl-and-blender/ according to the requirements of aruco.
 
+Refernces
+
+https://www.uco.es/investiga/grupos/ava/node/26
+https://rdmilligan.wordpress.com/2015/10/15/augmented-reality-using-opencv-opengl-and-blender/
+http://jevois.org/moddoc/DemoArUco/modinfo.html
+
+
+Upcoming work
+
+i'll update the calibration process shortly.
 
 
 
