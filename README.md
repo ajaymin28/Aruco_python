@@ -22,7 +22,7 @@ main.py
 
 objloader.py
 
--> this file is provided by pygame.com
+-> this file is provided by pygame
 refer to www.pygame.org/wiki/OBJFileLoader
 
 Obj and Mtl files.
