@@ -35,9 +35,23 @@ Mtl is material for the Obj file. (must require or your object will be rendered 
 Make sure you calibrate your camera first from calibration directory. (main.py from calibration includes comments to understand)
 the generated .yaml file should be used in main.py 
 
-just run the main.py
+- Calibration
 
-make sure you put all files in one directory.
+In Aruco_python calibration can be done two ways.
+1.using chess board
+2.using aruco board
+
+I prefer using chess board (refer main method in calibaration/aruco.py)
+-> rename the yaml file to the same name as main directory yaml file. (must)
+
+for calibrating using aruco (refer calibration/main.py)
+
+Once it says calibration done and data written in file.
+Copy the calibrated yaml file to the main directory and replace the older file. (must)
+
+now just run the main.py
+
+->make sure you put all files in one directory.
 
 
 - How to modify and use other 3d objects.
