@@ -62,6 +62,11 @@ Anything you find let me know. :)
 
 
 
+Licence
+
+I do not own any of the obj files, please read the readme file model/zip/sinband directory.
+main.py is modified from https://rdmilligan.wordpress.com/2015/10/15/augmented-reality-using-opencv-opengl-and-blender/ according to the requirements of aruco.
+
 
 
 
