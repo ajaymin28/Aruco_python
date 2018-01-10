@@ -38,16 +38,17 @@ the generated .yaml file should be used in main.py
 - Calibration
 
 In Aruco_python calibration can be done two ways.
-1.using chess board
-2.using aruco board
 
-I prefer using chess board (refer main method in calibaration/aruco.py)
--> rename the yaml file to the same name as main directory yaml file. (must)
+1.using chess board.
+2.using aruco board.
+
+I prefer using chess board (refer main method in calibaration/aruco.py)/
+-> rename the yaml file to the same name as main directory yaml file (must).
 
 for calibrating using aruco (refer calibration/main.py)
 
 Once it says calibration done and data written in file.
-Copy the calibrated yaml file to the main directory and replace the older file. (must)
+Copy the calibrated yaml file to the main directory and replace the older file (must).
 
 now just run the main.py
 
@@ -88,9 +89,9 @@ I do not own any of the obj files, please read the readme file model/zip/sinband
 
 Refernces
 
-https://www.uco.es/investiga/grupos/ava/node/26
-https://rdmilligan.wordpress.com/2015/10/15/augmented-reality-using-opencv-opengl-and-blender/
-http://jevois.org/moddoc/DemoArUco/modinfo.html
+1. https://www.uco.es/investiga/grupos/ava/node/26
+2. https://rdmilligan.wordpress.com/2015/10/15/augmented-reality-using-opencv-opengl-and-blender/
+3. http://jevois.org/moddoc/DemoArUco/modinfo.html
 
 
 - Upcoming work
