@@ -2,7 +2,7 @@ from Aruco_Master import Aruco_Master
 
 
 output_sample_dir = "frames" # frames will be saves in this directory
-num_of_smaples_to_take = 20 # 10 samples will be taken for calibration
+num_of_smaples_to_take = 20 # 20 samples will be taken for calibration
 output_file = "camera_matrix_aruco.yaml" #camera matrix will be written to this file
 
 
