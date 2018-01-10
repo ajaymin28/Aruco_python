@@ -94,9 +94,3 @@ Refernces
 3. http://jevois.org/moddoc/DemoArUco/modinfo.html
 
 
-- Upcoming work
-
-i'll update the calibration process shortly.
-
-
-
