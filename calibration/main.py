@@ -19,7 +19,6 @@ print("starting calibration...")
 Am.calibrate_camera_aruco(output_sample_dir,output_file) # actual calibration 
 
 # Am.random_things()
-
-Am.draw_axis_on_board()
+# Am.draw_axis_on_board()
 
 
