@@ -22,7 +22,8 @@ install it using pip commands.
 
 1. main.py
 
--> This file contains the main code which loads the 3d object in program, also initializes your camera and finds aruco marker and places the 3d object above the aruco marker.
+-> This file contains the main code which loads the 3d object in program, 
+also initializes your camera and finds aruco marker and places the 3d object above the aruco marker.
 
 2. objloader.py
 
@@ -36,7 +37,8 @@ Mtl is material for the Obj file. (must require or your object will be rendered 
 
 # How to use this.
 
-Make sure you calibrate your camera first from calibration directory. (main.py from calibration includes comments to understand)
+Make sure you calibrate your camera first from calibration directory. 
+(main.py from calibration includes comments to understand)
 the generated .yaml file should be used in main.py 
 
 # Calibration
