@@ -22,12 +22,12 @@ install it using pip commands.
 
 1. main.py
 
--> This file contains the main code which loads the 3d object in program, 
+This file contains the main code which loads the 3d object in program, 
 also initializes your camera and finds aruco marker and places the 3d object above the aruco marker.
 
 2. objloader.py
 
--> this file is provided by pygame
+This file is provided by pygame
 refer to www.pygame.org/wiki/OBJFileLoader
 
 3. Obj and Mtl files.
@@ -45,20 +45,24 @@ the generated .yaml file should be used in main.py
 
 In Aruco_python calibration can be done two ways.
 
-1.using chess board.
-2.using aruco board.
+1.Using chess board.
+2.Using aruco board.
 
-I prefer using chess board (refer main method in calibaration/aruco.py)/
--> rename the yaml file to the same name as main directory yaml file (must).
-
-for calibrating using aruco (refer calibration/main.py)
+# For calibrating using aruco (refer calibration/main.py)
 
 Once it says calibration done and data written in file.
 Copy the calibrated yaml file to the main directory and replace the older file (must).
 
-now just run the main.py
+# For calibrating using chessboard (refer calibration/aruco.py)
 
-->make sure you put all files in one directory.
+Rename the yaml file to the same name as main directory yaml file (must).
+
+Now just run the root main.py
+
+Make sure you put all files in one directory.
+
+1. 3dObj file & Mtl file
+2. camera_matrix
 
 ```
 
