@@ -1,4 +1,4 @@
-This is Aruco built in Python using python bindings of opencv.
+### This is Aruco built in Python using python bindings of opencv.
 
 - Requirements
 
@@ -12,30 +12,33 @@ install it using pip commands.
 
 1. imutils
 2. yaml
+3. pygame
+4. openGL
 
 
-I have used anaconda 4 with python version 3.x in windows 7.
+### I have used anaconda 4 with python version 3.x in windows 10.
+```markdown
 
-- main.py
+1. main.py
 
 -> this file contains the main code which loads the 3d object in program, also initializes your camera and finds aruco marker and places the 3d object above the aruco marker.
 
-- objloader.py
+2. objloader.py
 
 -> this file is provided by pygame
 refer to www.pygame.org/wiki/OBJFileLoader
 
-- Obj and Mtl files.
+3. Obj and Mtl files.
 
-obj file is generally created by blender or any 3d object creator program. (gaming softwares)
+Obj file is generally created by blender or any 3d object creator program. (gaming softwares)
 Mtl is material for the Obj file. (must require or your object will be rendered as black)
 
-- How to use this.
+# How to use this.
 
 Make sure you calibrate your camera first from calibration directory. (main.py from calibration includes comments to understand)
 the generated .yaml file should be used in main.py 
 
-- Calibration
+# Calibration
 
 In Aruco_python calibration can be done two ways.
 
@@ -54,10 +57,11 @@ now just run the main.py
 
 ->make sure you put all files in one directory.
 
+```
 
 - How to modify and use other 3d objects.
 
-Requirements
+### Requirements
 
 You need to have following
 
@@ -72,7 +76,6 @@ visit https://free3d.com/3d-models/obj-file
 
 Download any .obj file that you might require.
 Make sure you download obj file that have mtl file with it or only obj file will render black obj on your screen.
-
 
 
 Bugs
