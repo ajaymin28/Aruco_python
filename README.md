@@ -50,10 +50,17 @@ In Aruco_python calibration can be done two ways.
 
 # For calibrating using aruco (refer calibration/main.py)
 
+- [x] Set your video source in calibration/main.py file.
+- [x] Set Camera matrix file name.
+
+
 Once it says calibration done and data written in file.
 Copy the calibrated yaml file to the main directory and replace the older file (must).
 
 # For calibrating using chessboard (refer calibration/aruco.py)
+
+- [x] Set your video source in aruco.py file.
+- [x] Set Camera matrix file name.
 
 Rename the yaml file to the same name as main directory yaml file (must).
 
@@ -62,7 +69,7 @@ Now just run the root main.py
 Make sure you put all files in one directory.
 
 1. 3dObj file & Mtl file
-2. camera_matrix
+2. camera_matrix.yaml
 
 ```
 

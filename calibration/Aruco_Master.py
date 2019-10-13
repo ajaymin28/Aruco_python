@@ -130,7 +130,7 @@ class Aruco_Master(object):
 			getcount = self.get_marker_count(ids1)
 
 			if ids1 is not None and getcount==total_makers_to_look:
-				ret,rv,tv = aruco.estimatePoseBoard(corners1,ids1,board,cam_matrix,dist_coeff)
+				ret,rv,tv = aruco.estimatePoseBoard(corners1,ids1,board,cam_matrix,dist_coeff,rvecs,tvecs)
 				if ret>0:
 					aruco.drawDetectedMarkers(img, corners,ids,(0,0,255))
 					obj_points,img_points = aruco.getBoardObjectAndImagePoints(board,corners1,ids1)
@@ -170,11 +170,13 @@ class Aruco_Master(object):
 				
 
 	def calibrate_camera_aruco_init(self,output_samples_dir,number_of_samples_to_take):
-		im = Imutils_Master()
+		im = Imutils_Master("http://172.20.10.3:8160/")
 		img = im.getframe()
 		h,w,channel = img.shape
 		cnt=0
 		total_makers_to_look = self.MarkerX * self.MarkerY
+		if not os.path.exists(output_samples_dir):
+			os.makedirs(output_samples_dir)
 		while True:
 			img = im.getframe()
 			gray = im.gray(img)
@@ -183,6 +185,8 @@ class Aruco_Master(object):
 				count = self.get_marker_count(ids)
 				if count==total_makers_to_look:
 					cnt +=1
+					if not os.path.exists(output_samples_dir):
+						os.mkdir(output_samples_dir)
 					cv2.imwrite(output_samples_dir+"/aruco__"+str(count)+"__"+str(cnt)+".jpg",img)
 					aruco.drawDetectedMarkers(img, corners,ids,(255,0,0))
 			if cnt>=number_of_samples_to_take:
@@ -195,7 +199,7 @@ class Aruco_Master(object):
 		
 	def detect_markers(self,gray):
 		corners, ids, rejectedImgPoints = aruco.detectMarkers(gray, self.aruco_dict, parameters=self.parameters)
-		# aruco.drawDetectedMarkers(img, corners,ids,(255,0,0))
+		aruco.drawDetectedMarkers(gray, corners,ids,(255,0,0))
 		return corners,ids,rejectedImgPoints
 
 	def get_marker_count(self,corners):

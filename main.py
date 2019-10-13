@@ -9,6 +9,10 @@ from imutils.video import VideoStream
 import cv2.aruco as aruco
 import yaml
 import imutils
+
+"""
+This is file loads and displays the 3d model on OpenGL screen.
+"""
  
 class OpenGLGlyphs:
   
@@ -20,7 +24,7 @@ class OpenGLGlyphs:
  
     def __init__(self):
         # initialise webcam and start thread
-        self.webcam = VideoStream(src="rtsp://34.168.1.65:554/ISAPI/streaming/channels/101?auth=YWRtaW46QWRtaW5AMTIz").start()
+        self.webcam = VideoStream(src="http://172.20.10.3:8160/").start()
  
         # initialise shapes
         self.wolf = None
@@ -31,7 +35,7 @@ class OpenGLGlyphs:
         self.texture_background = None
 
         print("getting data from file")
-        self.cam_matrix,self.dist_coefs,rvecs,tvecs = self.get_cam_matrix("camera_matrix_aruco.yaml")
+        self.cam_matrix,self.dist_coefs,rvecs,tvecs = self.get_cam_matrix("camera_matrix_aruco_asus.yaml")
 
     def get_cam_matrix(self,file):
         with open(file) as f:
@@ -60,8 +64,8 @@ class OpenGLGlyphs:
         glEnable(GL_LIGHTING)
         glEnable(GL_COLOR_MATERIAL)
          
-        # assign shapes
-        File = 'Cube_Marble.obj'
+        # Load 3d object
+        File = 'Sinbad_4_000001.obj'
         self.wolf = OBJ(File,swapyz=True)
  
         # assign texture
@@ -162,7 +166,7 @@ class OpenGLGlyphs:
         glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH)
         glutInitWindowSize(640, 480)
         glutInitWindowPosition(500, 400)
-        self.window_id = glutCreateWindow("OpenGL Glyphs")
+        self.window_id = glutCreateWindow(b"OpenGL Glyphs")
         glutDisplayFunc(self._draw_scene)
         glutIdleFunc(self._draw_scene)
         self._init_gl(640, 480)

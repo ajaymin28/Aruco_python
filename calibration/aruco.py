@@ -7,6 +7,14 @@ import yaml
 import imutils
 import os
 
+#video source
+sc = "http://172.20.10.3:8160/"
+
+#cam_matrix_file name
+cam_matrix_file = "chessboard_matrix.yaml"
+
+
+
 # Arrays to store object points and image points from all the images.
 obj_points = [] # 3d point in real world space
 img_points = [] # 2d points in image plane.
@@ -213,6 +221,8 @@ def get_chessboard_frames(camera,number_of_data):
 		if found==True and len(corners)>0:
 			# print(cnt)
 			if cnt<=number_of_data:
+				if not os.path.exists("chess_board_frames"):
+					os.mkdir("chess_board_frames")
 				cv2.imwrite("chess_board_frames/chess_board___"+str(cnt)+".jpg",img)
 				cnt +=1
 			else:
@@ -293,24 +303,21 @@ def chessboard_3d(camera,cam_matrix_file):
 	while True:
 		img = camera.read()
 		gray = convert_gray(img)
-
 		ret, corners = cv2.findChessboardCorners(gray, pattern_size)
-		
 
 		if ret:
 			corners2 = cv2.cornerSubPix(gray, corners, (11,11), (-1, -1), criteria)
-			cv2.drawChessboardCorners(img, pattern_size, corners2, ret)
+			#cv2.drawChessboardCorners(img, pattern_size, corners2, ret)
 			if corners2 is not None:
 				ret,rvecs, tvecs, inliers = cv2.solvePnPRansac(pattern_points, corners2, cam_matrix, dist_coeff)
 				#ret,rvecs, tvecs, inliers = cv2.solvePnPRansac(objp, corners2, cam_matrix, dist_coeff)
-				if not ret:
+				if ret:
 					# print(obj_points)
-
 					# project 3D points to image plane
 					imgpts, jac = cv2.projectPoints(axis, rvecs, tvecs, cam_matrix, dist_coeff)
 					try:
 						draw_cube_chess(img,corners2,imgpts)
-						cv2.imwrite("output/Cube_drawn_"+str(cnt)+".jpg",img)
+						#cv2.imwrite("output/Cube_drawn_"+str(cnt)+".jpg",img)
 						cnt +=1		
 					except:
 						print("some error")
@@ -321,32 +328,33 @@ def chessboard_3d(camera,cam_matrix_file):
 		cv2.imshow('img',img)
 		k = cv2.waitKey(1) & 0xff
 		if k == 's':
-			cv2.imwrite("detteedd"+'.png', img)
+			cv2.imwrite("detteed"+'.png', img)
 
 	cv2.destroyAllWindows()
 
 
 
 def main():
-	vs = VideoStream(src="rtsp://34.168.1.65:554/ISAPI/streaming/channels/101?auth=YWRtaW46QWRtaW5AMTIz").start()
+	vs = VideoStream(src=sc).start()
 	time.sleep(1)
-	cam_matrix_file = "chessboard_matrix.yaml"
 	cam_matrix,dist_coeff,rvecs,tvecs = get_cam_matrix(cam_matrix_file)
 
+	"""
+	flag = calibrate_chessboard(vs,20,cam_matrix_file)
+	if flag:
+		main()
+	else:
+		print("calibration error")
+	"""
 
-	#flag = calibrate_chessboard(vs,20,cam_matrix_file)
-	# if flag:
-	# 	main()
-	# else:
-	# 	print("calibration error")
-
-	# # step:1
-	# ret = get_chessboard_frames(vs,20)
-	# if ret:
-	# 	# step:2
-	# 	flag = start_calibration_chessboard(20)
-	# 	if flag:
-	# 		print("\ncalibaration done")
+	#step:1 (run step 1 if calibration is not done.
+	"""
+	ret = get_chessboard_frames(vs,20)
+	if ret:
+		flag = start_calibration_chessboard(20)
+		if flag:
+			print("\ncalibaration done")
+	"""
 
 	#  step:3
 	chessboard_3d(vs,cam_matrix_file)

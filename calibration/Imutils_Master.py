@@ -8,24 +8,24 @@ class Imutils_Master(object):
 	# if you're getting black image change width and height to your camera resolution.
 	frame_width = 640
 	frame_height = 360
-	source = "rtsp://34.168.1.65:554/ISAPI/streaming/channels/101?auth=YWRtaW46QWRtaW5AMTIz"
+	source = 0
 	obj = None
 
-	def __init__(self,src=None):
-		if src is None:
-			self.obj = VideoStream(src=self.source).start()
+	def __init__(self,sc=None):
+		if sc is None:
+			self.obj = VideoStream(src=Imutils_Master.source).start()
 			h,w,c = self.obj.read().shape
 			self.frame_width = w
 			self.frame_height = h
 		else:
-			self.obj = VideoStream(src=src).start()
+			self.obj = VideoStream(src=sc).start()
 			h,w,c = self.obj.read().shape
 			self.frame_width = w
 			self.frame_height = h
 
 
-	def setsource(self,src):
-		self.source = src
+	def setsource(self,sc):
+		Imutils_Master.source = sc
 
 	def setframesize(self,width,height):
 		self.frame_width = width
