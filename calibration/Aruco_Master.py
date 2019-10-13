@@ -170,7 +170,7 @@ class Aruco_Master(object):
 				
 
 	def calibrate_camera_aruco_init(self,output_samples_dir,number_of_samples_to_take):
-		im = Imutils_Master("http://172.20.10.3:8160/")
+		im = Imutils_Master("http://172.20.10.3:8160/") #change your video source here.
 		img = im.getframe()
 		h,w,channel = img.shape
 		cnt=0
