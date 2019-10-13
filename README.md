@@ -83,7 +83,7 @@ You need to have following
 2. python opengl (an introduction to opengl, and how it works. )
 3. blender (to modify and to create new objects as per your requirements.)
 4. unity 3d (optional)
-5. Aruco marker printed. (http://terpconnect.umd.edu/~jwelsh12/enes100/markergen.html)
+5. [Aruco marker printed] (http://terpconnect.umd.edu/~jwelsh12/enes100/markergen.html)
 
 
 visit https://free3d.com/3d-models/obj-file
