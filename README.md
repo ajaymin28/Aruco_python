@@ -1,5 +1,5 @@
-### This is Aruco built in Python using python bindings of opencv.
-
+### This is Aruco code for Python using python bindings of opencv.
+```markdown
 - Requirements
 
 1. python 3.x
@@ -15,13 +15,14 @@ install it using pip commands.
 3. pygame
 4. openGL
 
+```
 
 ### I have used anaconda 4 with python version 3.x in windows 10.
 ```markdown
 
 1. main.py
 
--> this file contains the main code which loads the 3d object in program, also initializes your camera and finds aruco marker and places the 3d object above the aruco marker.
+-> This file contains the main code which loads the 3d object in program, also initializes your camera and finds aruco marker and places the 3d object above the aruco marker.
 
 2. objloader.py
 
@@ -62,7 +63,7 @@ now just run the main.py
 - How to modify and use other 3d objects.
 
 ### Requirements
-
+```markdown
 You need to have following
 
 1. Brain (must require)
@@ -76,14 +77,12 @@ visit https://free3d.com/3d-models/obj-file
 
 Download any .obj file that you might require.
 Make sure you download obj file that have mtl file with it or only obj file will render black obj on your screen.
-
-
+```
 Bugs
 
 1. Light is little low on opengl window as compared to opencv window. (make sure you work in environment which have enough light)
 
 Anything you find let me know. :)
-
 
 
 - Licence
