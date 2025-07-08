@@ -1,111 +1,109 @@
-### This is Aruco code for Python using python bindings of opencv.
-```markdown
-- Requirements
+# Augmented Reality with Aruco Markers in Python
 
-1. python 3.x
-2. opencv 3.x 
-3. opencv_contrib (for aruco)
+A Python project that brings augmented reality to life by overlaying 3D objects on Aruco markers using OpenCV and OpenGL.
 
+## Demo
 
-- Packages requirements for python & opencv
-install it using pip commands.
+<p align="center">
+  <a href="http://www.youtube.com/watch?v=RNwTGPvuhPw">
+    <img src="http://img.youtube.com/vi/RNwTGPvuhPw/0.jpg" alt="YouTube Demo" />
+  </a>
+</p>
 
-1. imutils
-2. yaml
-3. pygame
-4. openGL
+---
 
+## Requirements
+
+* **Python** 3.x
+* **OpenCV** 3.x (`opencv_contrib` required for Aruco support)
+* **imutils**
+* **PyYAML**
+* **pygame**
+* **PyOpenGL**
+
+Install Python packages via pip:
+
+```bash
+pip install imutils pyyaml pygame PyOpenGL
 ```
 
-### I have used anaconda 4 with python version 3.x in windows 10.
-```markdown
+> Developed and tested on Anaconda 4 (Python 3.x, Windows 10), but should work on most platforms.
 
-1. main.py
+---
 
-This file contains the main code which loads the 3d object in program, 
-also initializes your camera and finds aruco marker and places the 3d object above the aruco marker.
+## Project Structure
 
-2. objloader.py
+* `main.py`: Main code. Loads the 3D object, initializes your camera, detects Aruco markers, and overlays the 3D object.
+* `objloader.py`: Utility for loading OBJ files (see [PyGame Wiki](https://www.pygame.org/wiki/OBJFileLoader)).
+* `.obj` and `.mtl` files: Your 3D model (exported from Blender or other 3D software). Both are required for proper rendering.
 
-This file is provided by pygame
-refer to www.pygame.org/wiki/OBJFileLoader
+---
 
-3. Obj and Mtl files.
+## Getting Started
 
-Obj file is generally created by blender or any 3d object creator program. (gaming softwares)
-Mtl is material for the Obj file. (must require or your object will be rendered as black)
+1. **Camera Calibration**
 
-# How to use this.
+   * Calibrate your camera first. Use scripts in the `calibration` directory (see details below).
+   * This generates a `.yaml` file for your camera matrix.
+2. **Prepare Your Files**
 
-Make sure you calibrate your camera first from calibration directory. 
-(main.py from calibration includes comments to understand)
-the generated .yaml file should be used in main.py 
+   * Place your `camera_matrix.yaml`, `.obj`, and `.mtl` files in the project’s main directory.
+3. **Run the Demo**
 
-# Calibration
+   ```bash
+   python main.py
+   ```
 
-In Aruco_python calibration can be done two ways.
+---
 
-1.Using chess board.
-2.Using aruco board.
+## Calibration
 
-# For calibrating using aruco (refer calibration/main.py)
+You can calibrate using either a chessboard or an Aruco board.
 
-- [x] Set your video source in calibration/main.py file.
-- [x] Set Camera matrix file name.
+### Aruco Board Calibration
 
+* Edit `calibration/main.py`:
 
-Once it says calibration done and data written in file.
-Copy the calibrated yaml file to the main directory and replace the older file (must).
+  * Set your video source (camera index or file).
+  * Set output YAML filename.
+* Run and follow the instructions.
+* When done, copy the generated YAML to the main directory.
 
-# For calibrating using chessboard (refer calibration/aruco.py)
+### Chessboard Calibration
 
-- [x] Set your video source in aruco.py file.
-- [x] Set Camera matrix file name.
+* Edit `calibration/aruco.py`:
 
-Rename the yaml file to the same name as main directory yaml file (must).
+  * Set your video source and output YAML filename.
+* Run the script.
+* Move or rename the generated YAML file to match the main directory config.
 
-Now just run the root main.py
+---
 
-Make sure you put all files in one directory.
+## Using Your Own 3D Objects
 
-1. 3dObj file & Mtl file
-2. camera_matrix.yaml
+* Download `.obj` models with matching `.mtl` files (e.g., from [Free3D](https://free3d.com/3d-models/obj-file)).
+* Replace the `.obj` and `.mtl` files in your main directory.
+* Without an `.mtl` file, objects will render black.
+* You can create/edit models in Blender or other 3D tools.
 
-```
+---
 
-- How to modify and use other 3d objects.
+## Troubleshooting & Tips
 
-### Requirements
-```markdown
-You need to have following
+* OpenGL window lighting may be dimmer than OpenCV—work in a well-lit room.
+* All required files (`main.py`, `objloader.py`, model files, `camera_matrix.yaml`) must be in the same folder.
+* Report bugs or issues by opening an issue or reaching out.
 
-1. Brain (must require)
-2. python opengl (an introduction to opengl, and how it works. )
-3. blender (to modify and to create new objects as per your requirements.)
-4. unity 3d (optional)
-5. Aruco marker printed (Refer calibaration/Marker Boards/)
+---
 
+## License & Attribution
 
-visit https://free3d.com/3d-models/obj-file
+* 3D models included are not owned by me. See the license/readme in `models/` or `zip/sinband/` for details.
 
-Download any .obj file that you might require.
-Make sure you download obj file that have mtl file with it or only obj file will render black obj on your screen.
-```
-Bugs
+## References
 
-1. Light is little low on opengl window as compared to opencv window. (make sure you work in environment which have enough light)
+* [University of Cordoba: Aruco Documentation](https://www.uco.es/investiga/grupos/ava/node/26)
+* [Augmented Reality using OpenCV, OpenGL, and Blender](https://rdmilligan.wordpress.com/2015/10/15/augmented-reality-using-opencv-opengl-and-blender/)
+* [JeVois Aruco Demo](http://jevois.org/moddoc/DemoArUco/modinfo.html)
 
-Anything you find let me know. :)
-
-
-- Licence
-
-I do not own any of the obj files, please read the readme file model/zip/sinband directory.
-
-Refernces
-
-1. https://www.uco.es/investiga/grupos/ava/node/26
-2. https://rdmilligan.wordpress.com/2015/10/15/augmented-reality-using-opencv-opengl-and-blender/
-3. http://jevois.org/moddoc/DemoArUco/modinfo.html
-
-
+---
